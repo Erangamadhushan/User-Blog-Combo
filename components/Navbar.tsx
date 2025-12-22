@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { Button } from "./ui/button";
 import LogoutButton from "./LogoutButton";
 
 export default async function Navbar() {
@@ -12,25 +13,25 @@ export default async function Navbar() {
     console.error("Session error:", err);
   }
   return (
-    <nav className="w-full border-b bg-white sticky top-0 z-50">
+    <nav className="w-full border-b sticky top-0 z-50 dark:text-white bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-gray-900">
+        <Link href="/" className="text-xl font-bold dark:text-white">
           Blogify
         </Link>
 
         {/* Navigation Links */}
         <div className="hidden md:flex gap-6 text-gray-600">
-          <Link href="/" className="hover:text-black">
+          <Link href="/" className="dark:hover:text-white hover:text-black">
             Home
           </Link>
-          <Link href="/blogs" className="hover:text-black">
+          <Link href="/blogs" className="dark:hover:text-white hover:text-black">
             Blogs
           </Link>
-          <Link href="/about" className="hover:text-black">
+          <Link href="/about" className="dark:hover:text-white hover:text-black">
             About
           </Link>
-          <Link href="/contact" className="hover:text-black">
+          <Link href="/contact" className="dark:hover:text-white hover:text-black">
             Contact
           </Link>
         </div>
@@ -47,8 +48,12 @@ export default async function Navbar() {
             </>
           ) : (
             <>
-              <Link href="/login" className="text-gray-600 hover:text-black">Login</Link>
-              <Link href="/register" className="text-gray-600 hover:text-black">Register</Link>
+              <Button asChild variant="ghost" size="lg">
+                <Link href="/login" className="text-gray-600 hover:text-white">Login</Link>
+              </Button>
+              <Button asChild size="lg">
+                <Link href="/register" className="text-gray-600 dark:hover:text-black">Register</Link>
+              </Button>
             </>
           )}
         </div>

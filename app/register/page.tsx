@@ -26,7 +26,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-[70vh] flex items-center justify-center">
       <form
         onSubmit={handleRegister}
         className="w-full max-w-sm border p-6 rounded-lg space-y-4"
