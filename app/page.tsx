@@ -1,21 +1,26 @@
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
-export default function HomePage() {
+async function getBlogs() {
+  const res = await fetch("http://localhost:3000/api/blogs", {
+    cache: "no-store",
+  });
+  return res.json();
+}
+
+export default async function HomePage() {
+  const blogs = await getBlogs();
   return (
     <>
-      <Navbar />
-
       <main className="max-w-7xl mx-auto px-4">
-
         {/* Hero Section */}
         <section className="py-20 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Read. Write. Share Stories.
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            A modern blogging platform where users share ideas, tutorials,
-            and experiences with the world.
+            A modern blogging platform where users share ideas, tutorials, and
+            experiences with the world.
           </p>
 
           <div className="flex justify-center gap-4">
@@ -48,8 +53,8 @@ export default function HomePage() {
                   Sample Blog Title {item}
                 </h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  This is a short description of the blog post to give
-                  readers an idea about the content.
+                  This is a short description of the blog post to give readers
+                  an idea about the content.
                 </p>
                 <div className="flex justify-between items-center text-sm text-gray-500">
                   <span>By John Doe</span>
@@ -63,8 +68,22 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </section>
+          <div className="space-y-4">
+            {blogs.map((blog: any) => (
+              <div key={blog.id} className="border p-4 rounded">
+                <h2 className="text-xl font-semibold">{blog.title}</h2>
+                <p className="text-sm text-gray-500">by {blog.author?.email}</p>
 
+                <Link
+                  href={`/blogs/${blog.id}`}
+                  className="inline-block mt-2 underline"
+                >
+                  Read more →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />
