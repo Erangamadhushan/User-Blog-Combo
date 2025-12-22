@@ -24,18 +24,18 @@ export default async function HomePage() {
           </p>
 
           <div className="flex justify-center gap-4">
-            <a
+            <Link
               href="/blogs"
               className="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800"
             >
               Explore Blogs
-            </a>
-            <a
+            </Link>
+            <Link
               href="/create-blog"
               className="px-6 py-3 border rounded-md hover:bg-gray-100"
             >
               Write a Blog
-            </a>
+            </Link>
           </div>
         </section>
 
