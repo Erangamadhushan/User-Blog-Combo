@@ -20,8 +20,10 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        <Navbar />
-        {children}
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
