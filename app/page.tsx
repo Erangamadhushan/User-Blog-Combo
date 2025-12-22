@@ -1,15 +1,15 @@
 import Footer from "../components/Footer";
 import Link from "next/link";
 
-async function getBlogs() {
-  const res = await fetch("http://localhost:3000/api/blogs", {
-    cache: "no-store",
-  });
-  return res.json();
-}
+// async function getBlogs() {
+//   const res = await fetch("http://localhost:3000/api/blogs", {
+//     cache: "no-store",
+//   });
+//   return res.json();
+// }
 
 export default async function HomePage() {
-  const blogs = await getBlogs();
+  //const blogs = await getBlogs();
   return (
     <>
       <main className="max-w-7xl mx-auto px-4">
@@ -68,7 +68,7 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             {blogs.map((blog: any) => (
               <div key={blog.id} className="border p-4 rounded">
                 <h2 className="text-xl font-semibold">{blog.title}</h2>
@@ -82,7 +82,7 @@ export default async function HomePage() {
                 </Link>
               </div>
             ))}
-          </div>
+          </div> */}
         </section>
       </main>
 
