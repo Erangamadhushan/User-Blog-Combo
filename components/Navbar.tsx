@@ -39,7 +39,7 @@ export default async function Navbar() {
         <div className="flex gap-3">
           {session ? (
             <>
-              <Link href="/create-blog">Create</Link>
+              <Link href="/create-blog" className="text-gray-600 hover:text-black">Create</Link>
               <span className="text-sm text-gray-600">
                 {session.user.email}
               </span>
