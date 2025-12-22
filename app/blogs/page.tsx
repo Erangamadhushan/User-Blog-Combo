@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 export default async function BlogsPage() {
   const res = await fetch("http://localhost:3000/api/blogs", {
@@ -12,7 +13,14 @@ export default async function BlogsPage() {
 
       {blogs.map((blog: any) => (
         <div key={blog.id} className="border-b py-4">
-          <h2 className="text-xl font-semibold">{blog.title}</h2>
+          <h2 className="text-xl font-semibold">
+            {blog.title}
+          </h2>
+          <div className="prose prose-lg max-w-none">
+            <ReactMarkdown>{blog.content}</ReactMarkdown>
+          </div>
+
+
           <Link href={`/blogs/${blog.id}`} className="underline text-sm">
             Read →
           </Link>

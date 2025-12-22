@@ -13,6 +13,7 @@ export default function CreateBlogPage() {
 
     await fetch("/api/blogs", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title, content }),
     });
 
@@ -20,21 +21,30 @@ export default function CreateBlogPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Create Blog</h1>
+    <div className="max-w-5xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4">Create Blog (Markdown)</h1>
 
       <form onSubmit={submitBlog} className="space-y-4">
         <input
           className="w-full border p-2 rounded"
-          placeholder="Title"
+          placeholder="Blog title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
 
         <textarea
-          className="w-full border p-2 rounded min-h-[200px]"
-          placeholder="Content"
+          className="w-full border p-3 rounded font-mono min-h-[300px]"
+          placeholder={`# My Blog Title
+
+## Introduction
+
+Write your blog like a README.md
+
+\`\`\`js
+console.log("Hello World");
+\`\`\`
+`}
           value={content}
           onChange={(e) => setContent(e.target.value)}
           required
