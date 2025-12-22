@@ -41,14 +41,14 @@ export default async function Navbar() {
             <>
               <Link href="/create-blog" className="text-gray-600 hover:text-black">Create</Link>
               <span className="text-sm text-gray-600">
-                {session.user.email}
+                {session.user?.email || " "}
               </span>
               <LogoutButton />
             </>
           ) : (
             <>
-              <Link href="/login">Login</Link>
-              <Link href="/register">Register</Link>
+              <Link href="/login" className="text-gray-600 hover:text-black">Login</Link>
+              <Link href="/register" className="text-gray-600 hover:text-black">Register</Link>
             </>
           )}
         </div>

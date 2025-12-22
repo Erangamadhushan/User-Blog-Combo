@@ -21,9 +21,10 @@ export default function LoginPage() {
 
     if (res?.error) {
       setError("Invalid email or password");
-    } else {
-      router.push("/");
-    }
+      return ;
+    } 
+
+    router.push("/");
   };
 
   return (
