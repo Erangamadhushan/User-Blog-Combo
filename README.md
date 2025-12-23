@@ -58,7 +58,7 @@ This project is a modern blogging platform that allows users to:
 - Next.js (App Router)
 - React
 - Tailwind CSS
-- shadch/ui
+- shadcn/ui
 
 ### Backend
 - Next.js APP Routes
