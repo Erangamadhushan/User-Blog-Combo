@@ -27,7 +27,7 @@ export default async function Navbar() {
             Home
           </Link>
           <Link
-            href="/blogs"
+            href="/blog"
             className="dark:hover:text-white hover:text-black"
           >
             Blogs
