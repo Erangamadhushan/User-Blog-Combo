@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkToc from "remark-toc";
+import rehypeHighlight from "rehype-highlight";
 import { useRouter } from "next/navigation";
 
 export default function CreateBlogPage() {
@@ -8,9 +16,7 @@ export default function CreateBlogPage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const submitBlog = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const submitBlog = async () => {
     await fetch("/api/blogs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,39 +27,48 @@ export default function CreateBlogPage() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Create Blog (Markdown)</h1>
+    <main className="max-w-7xl mx-auto p-6">
+      <Card>
+        <CardHeader>
+          <h1 className="text-2xl font-semibold">Create Blog</h1>
+        </CardHeader>
 
-      <form onSubmit={submitBlog} className="space-y-4">
-        <input
-          className="w-full border p-2 rounded"
-          placeholder="Blog title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
+        <CardContent className="grid md:grid-cols-2 gap-6">
+          {/* Editor */}
+          <div className="space-y-3">
+            <Input
+              placeholder="Blog title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              aria-required="true"
+            />
+            <Textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              className="min-h-[400px] font-mono"
+              placeholder="# Write like a README.md"
+              aria-required="true"
+            />
+          </div>
 
-        <textarea
-          className="w-full border p-3 rounded font-mono min-h-[300px]"
-          placeholder={`# My Blog Title
+          {/* Preview */}
+          <div className="border rounded-md p-4 overflow-auto prose dark:prose-invert max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[
+                remarkGfm,
+                [remarkToc, { heading: "contents" }],
+              ]}
+              rehypePlugins={[rehypeHighlight]}
+            >
+              {content || "Start writing to see preview"}
+            </ReactMarkdown>
+          </div>
 
-## Introduction
-
-Write your blog like a README.md
-
-\`\`\`js
-console.log("Hello World");
-\`\`\`
-`}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          required
-        />
-
-        <button className="bg-black text-white px-4 py-2 rounded">
-          Publish
-        </button>
-      </form>
-    </div>
+          <div className="md:col-span-2">
+            <Button onClick={submitBlog}>Publish</Button>
+          </div>
+        </CardContent>
+      </Card>
+    </main>
   );
 }

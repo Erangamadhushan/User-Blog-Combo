@@ -2,7 +2,8 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Button } from "./ui/button";
-import LogoutButton from "./LogoutButton";
+import ToggleTheme from "./ui/toggle-theme";
+import { DropdownProfile } from "./ui/profile";
 
 export default async function Navbar() {
   let session = null;
@@ -25,34 +26,57 @@ export default async function Navbar() {
           <Link href="/" className="dark:hover:text-white hover:text-black">
             Home
           </Link>
-          <Link href="/blogs" className="dark:hover:text-white hover:text-black">
+          <Link
+            href="/blogs"
+            className="dark:hover:text-white hover:text-black"
+          >
             Blogs
           </Link>
-          <Link href="/about" className="dark:hover:text-white hover:text-black">
+          <Link
+            href="/about"
+            className="dark:hover:text-white hover:text-black"
+          >
             About
           </Link>
-          <Link href="/contact" className="dark:hover:text-white hover:text-black">
+          <Link
+            href="/contact"
+            className="dark:hover:text-white hover:text-black"
+          >
             Contact
           </Link>
         </div>
 
         {/* Auth buttons */}
-        <div className="flex gap-3">
+        <div className="flex gap-3 items-baseline">
+          <div className="hidden md:block">
+            <ToggleTheme />
+          </div>
           {session ? (
             <>
-              <Link href="/create-blog" className="text-gray-600 hover:text-black">Create</Link>
+              <Link
+                href="/create-blog"
+                className="text-gray-600 hover:text-black"
+              >
+                Create
+              </Link>
               <span className="text-sm text-gray-600">
-                {session.user?.email || " "}
+                <DropdownProfile user={session.user} />
               </span>
-              <LogoutButton />
             </>
           ) : (
             <>
               <Button asChild variant="ghost" size="lg">
-                <Link href="/login" className="text-gray-600 hover:text-white">Login</Link>
+                <Link href="/login" className="text-gray-600 hover:text-black dark:hover:text-white">
+                  Login
+                </Link>
               </Button>
               <Button asChild size="lg">
-                <Link href="/register" className="text-gray-600 dark:hover:text-black">Register</Link>
+                <Link
+                  href="/register"
+                  className="text-gray-600 dark:hover:text-black"
+                >
+                  Register
+                </Link>
               </Button>
             </>
           )}
