@@ -1,7 +1,7 @@
 ![Blogify](./public/main.png)
 # 📝 User Blog Platform
 
-A full-stack **user + Blog Platform** Built with **Next.js App Router**, **Prisma**, and **PostgreSQL**, where users can authenticate and publish **Markdown-based blog posts** similar to writing a `README.md`.
+A full-stack **user + Blog Platform** built with **Next.js App Router**, **Prisma**, and **PostgreSQL**, where users can authenticate and publish **Markdown-based blog posts** similar to writing a `README.md`.
 
 ---
 
