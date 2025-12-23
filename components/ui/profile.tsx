@@ -19,7 +19,9 @@ export function DropdownProfile({ user }: { user: any }) {
         <Button variant="outline"><CircleUser  className="w-[50px]" /></Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="start">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>
+          {user?.email ?? "My Account"}
+        </DropdownMenuLabel>
         <DropdownMenuGroup>
           <DropdownMenuItem>
             Profile
