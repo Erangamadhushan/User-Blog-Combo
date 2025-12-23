@@ -25,7 +25,7 @@ export default async function HomePage() {
 
           <div className="flex justify-center gap-4">
             <Link
-              href="/blogs"
+              href="/blog"
               className="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800"
             >
               Explore Blogs
