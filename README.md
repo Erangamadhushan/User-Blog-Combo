@@ -45,7 +45,7 @@ This project is a modern blogging platform that allows users to:
 - Protected routes using middleware
 - Markdown-based blog editor (README-style)
 - Live Markdown preview with TOC
-- Systax-highlighted code blocks
+- Syntax-highlighted code blocks
 - Human-readable timestamps (e.g. "2 hours ago")
 - Responsive UI using Tailwind CSS & shadcn/ui
 - Light/Dark Themes
