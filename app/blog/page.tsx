@@ -6,7 +6,7 @@ import rehypeHighlight from "rehype-highlight";
 import { TimeCalculation } from "@/components/ui/time-calculation";
 
 export default async function BlogsPage() {
-  const res = await fetch("http://localhost:3000/api/blogs", {
+  const res = await fetch("http://localhost:3000/api/blog", {
     cache: "no-store",
   });
   const blogs = await res.json();
@@ -20,7 +20,7 @@ export default async function BlogsPage() {
           <h2 className="text-xl font-semibold">
             {blog.title}
           </h2>
-          <div className="prose prose-lg max-w-none bg-gray-100 dark:prose-invert my-2 dark:bg-gray-800 p-4 rounded">
+          {/* <div className="prose prose-lg max-w-none bg-gray-100 dark:prose-invert my-2 dark:bg-gray-800 p-4 rounded">
             <ReactMarkdown
              remarkPlugins={[
                 remarkGfm,
@@ -30,14 +30,14 @@ export default async function BlogsPage() {
               >
               {blog.content}
             </ReactMarkdown>
-          </div>
+          </div> */}
           <p>
             <span className="text-sm text-gray-500">
                <TimeCalculation createdAt={blog.createdAt} />
             </span>
           </p>
 
-          <Link href={`/blogs/${blog.id}`} className="underline text-sm">
+          <Link href={`/blog/${blog.id}`} className="underline text-sm">
             Read →
           </Link>
         </div>

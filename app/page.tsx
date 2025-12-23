@@ -1,8 +1,7 @@
-import Footer from "../components/Footer";
 import Link from "next/link";
 
 async function getBlogs() {
-  const res = await fetch("http://localhost:3000/api/blogs", {
+  const res = await fetch("http://localhost:3000/api/blog", {
     cache: "no-store",
   });
   return res.json();
@@ -51,7 +50,7 @@ export default async function HomePage() {
                 <p className="text-sm text-gray-500">by {blog.author?.email}</p>
 
                 <Link
-                  href={`/blogs/${blog.id}`}
+                  href={`/blog/${blog.id}`}
                   className="inline-block mt-2 underline"
                 >
                   Read more →
