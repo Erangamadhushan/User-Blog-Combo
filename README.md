@@ -32,7 +32,7 @@ This project is a modern blogging platform that allows users to:
 - Register and log in using credentials or OAuth(Google, GitHub)
 - Create and publish blogs using **Markdown**
 - Preview blog content live before publishing
-- View blogs rendered with systax highlighting and table of contents
+- View blogs rendered with syntax highlighting and table of contents
 - Access protected routes securely
 
 ---
