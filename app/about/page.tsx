@@ -2,12 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-[80vh] dark:bg-gray-900 bg-white py-12">
+    <main className="min-h-[80vh] dark:bg-black bg-white py-12">
       <div className="max-w-4xl mx-auto px-6">
         <Card>
           <CardHeader>
             <CardTitle className="text-3xl">
-              About This Blog
+              About Blogify
             </CardTitle>
           </CardHeader>
 
