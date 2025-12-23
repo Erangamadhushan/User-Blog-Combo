@@ -40,20 +40,24 @@ export default function CreateBlogPage() {
               placeholder="Blog title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              aria-required="true"
             />
             <Textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
               className="min-h-[400px] font-mono"
               placeholder="# Write like a README.md"
-              required
+              aria-required="true"
             />
           </div>
 
           {/* Preview */}
           <div className="border rounded-md p-4 overflow-auto prose dark:prose-invert max-w-none">
             <ReactMarkdown
-              remarkPlugins={[remarkGfm, remarkToc]}
+              remarkPlugins={[
+                remarkGfm,
+                [remarkToc, { heading: "contents" }],
+              ]}
               rehypePlugins={[rehypeHighlight]}
             >
               {content || "Start writing to see preview"}

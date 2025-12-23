@@ -2,13 +2,13 @@
 
 import { signOut } from "next-auth/react";
 
-export default function LogoutButton() {
+export default function LogoutButton({children}: {children: React.ReactNode}) {
   return (
     <button
       onClick={() => signOut({ callbackUrl: "/login" })}
-      className="text-sm underline text-gray-600 hover:text-black border border-black rounded-md px-3 py-1"
+      className=""
     >
-      Logout
+      {children}
     </button>
   );
 }

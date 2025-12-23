@@ -2,8 +2,8 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Button } from "./ui/button";
-import LogoutButton from "./LogoutButton";
 import ToggleTheme from "./ui/toggle-theme";
+import { DropdownProfile } from "./ui/profile";
 
 export default async function Navbar() {
   let session = null;
@@ -47,7 +47,7 @@ export default async function Navbar() {
         </div>
 
         {/* Auth buttons */}
-        <div className="flex gap-3">
+        <div className="flex gap-3 items-baseline">
           <div className="hidden md:block">
             <ToggleTheme />
           </div>
@@ -60,14 +60,13 @@ export default async function Navbar() {
                 Create
               </Link>
               <span className="text-sm text-gray-600">
-                {session.user?.email || " "}
+                <DropdownProfile user={session.user} />
               </span>
-              <LogoutButton />
             </>
           ) : (
             <>
               <Button asChild variant="ghost" size="lg">
-                <Link href="/login" className="text-gray-600 hover:text-white">
+                <Link href="/login" className="text-gray-600 hover:text-black dark:hover:text-white">
                   Login
                 </Link>
               </Button>
