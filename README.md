@@ -20,6 +20,7 @@ A full-stack **user + Blog Platform** built with **Next.js App Router**, **Prism
 - Markdown Blogging
 - Middleware & Security
 - Future Improvement
+- License
 - Licence
 
 ---
