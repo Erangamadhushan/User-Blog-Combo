@@ -9,7 +9,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   return (
     <main className="min-h-[70vh] dark:bg-black grid grid-cols-1 md:grid-cols-2 bg-gray-50 py-12">
-      <div className="grid col-span-1 mx-auto px-6">
+      <div className="p-6">
         {/* Card */}
         <Card className="mb-8">
           <CardHeader>
@@ -28,7 +28,7 @@ export default function ContactPage() {
           </CardContent>
         </Card>
       </div>
-      <div className="grid col-span-1 mx-auto p-5 border shadow-md px-6">
+      <div className="p-5 bg-white dark:bg-black/80 shadow-md rounded-lg w-[90%] mx-auto">
         {submitted ? (
           <p className="text-green-600">
             Thank you! Your message has been received.
@@ -39,7 +39,7 @@ export default function ContactPage() {
               e.preventDefault();
               setSubmitted(true);
             }}
-            className="space-y-5 w-[500px] max-w-full"
+            className="space-y-5 w-[90%] mx-auto max-w-full"
           >
             <Input placeholder="Your name" required />
             <Input type="email" placeholder="Your email" required />
