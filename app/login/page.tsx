@@ -60,7 +60,7 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
+            className="w-full bg-black text-white py-2 rounded dark:bg-gray-800 hover:bg-gray-800 dark:hover:bg-gray-900 transition cursor-pointer"
           >
             Login
           </button>
@@ -75,14 +75,14 @@ export default function LoginPage() {
         <div className="p-4 space-y-4">
           <button
             onClick={() => signIn("google")}
-            className="w-full border py-2 rounded"
+            className="w-full border py-2 rounded cursor-pointer"
           >
             <FcGoogle className="inline mr-2" /> Continue with Google
           </button>
 
           <button
             onClick={() => signIn("github")}
-            className="w-full border py-2 rounded"
+            className="w-full border py-2 rounded cursor-pointer"
           >
             <RxGithubLogo className="inline mr-2" /> Continue with GitHub
           </button>

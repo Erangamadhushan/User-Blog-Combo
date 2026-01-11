@@ -47,7 +47,7 @@ export default async function Navbar() {
         </div>
 
         {/* Auth buttons */}
-        <div className="flex gap-3 items-baseline">
+        <div className="flex gap-3 justify-center items-center">
           <div className="hidden md:block">
             <ToggleTheme />
           </div>
