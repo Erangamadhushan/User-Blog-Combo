@@ -73,7 +73,7 @@ export default function LoginPage() {
           </p>
         </form>
         <div className="p-4 space-y-4">
-          <button
+          <button 
             onClick={() => signIn("google")}
             className="w-full border py-2 rounded cursor-pointer"
           >
