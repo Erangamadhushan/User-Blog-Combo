@@ -1,0 +1,42 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js build artifacts and caches
+.next
+out
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+logs
+*.log
+*.tmp
+*.temp
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# VCS and metadata
+.git
+.gitignore
+
+# Test and coverage output
+coverage
+
+# Prisma/DB local artifacts
+prisma/dev.db
+prisma/dev.db-journal
+
+# Locally generated artifacts not required for Docker build
+app/generated/prisma
+
